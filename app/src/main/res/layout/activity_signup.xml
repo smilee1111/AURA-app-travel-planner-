@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".ui.activity.SignupActivity"
+   >
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="425dp"
+        android:layout_height="306dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/signupimage" />
+
+    <TextView
+        android:id="@+id/hiText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="160dp"
+        android:text="Hi There"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/hiImage"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <ImageView
+        android:id="@+id/hiImage"
+        android:layout_width="74dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="288dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:srcCompat="@drawable/hiimage" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="222dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="54dp"
+        android:text="Make your travel journey exciting by joining us."
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/hiText" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/userName"
+        android:layout_width="219dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="53dp"
+        android:textColorHint="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="       USERNAME"
+
+            android:textSize="20dp"
+            android:background="@color/boxcolor"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <EditText
+        android:id="@+id/phoneNum"
+        android:layout_width="219dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="52dp"
+        android:background="@color/boxcolor"
+        android:ems="10"
+        android:hint="       PHONE NUMBER"
+        android:inputType="phone"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userName" />
+
+    <EditText
+        android:id="@+id/editPassword"
+        android:layout_width="220dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="52dp"
+        android:background="@color/boxcolor"
+        android:ems="10"
+        android:hint="            PASSWORD"
+        android:inputType="textPassword"
+        android:textColorHint="@color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNum" />
+
+    <CheckBox
+        android:id="@+id/checkBoxSignup"
+        android:layout_width="282dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="4dp"
+        android:text="I agree to terms and conditions."
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPassword" />
+
+    <Button
+        android:id="@+id/signUpButton"
+        android:layout_width="131dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="111dp"
+        android:text="Sign Up"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:backgroundTint="@color/brown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkBoxSignup" />
+</androidx.constraintlayout.widget.ConstraintLayout>

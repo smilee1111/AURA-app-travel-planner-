@@ -1,8 +1,6 @@
-package com.example.aura_app.ui
+package com.example.aura_app.ui.activity
 
 import android.os.Bundle
-import android.renderscript.ScriptGroup.Binding
-import android.view.inputmethod.InputBinding
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
