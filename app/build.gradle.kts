@@ -4,8 +4,13 @@ plugins {
 }
 
 android {
+    buildFeatures {
+        viewBinding = true
+    }
+
+
     namespace = "com.example.aura_app"
-    compileSdk = 34
+    compileSdk =  35
 
     defaultConfig {
         applicationId = "com.example.aura_app"
