@@ -4,8 +4,12 @@ plugins {
 }
 
 android {
+    buildFeatures{
+        viewBinding = true
+    }
+
     namespace = "com.example.aura_app"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.aura_app"
@@ -45,4 +49,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("com.airbnb.android:lottie:6.6.2")
 }
