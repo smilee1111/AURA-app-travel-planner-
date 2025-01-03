@@ -10,5 +10,5 @@
         android:color="@color/boxcolor"
         />
 
-    <solid android:color="@color/boxcolor" />
+    <solid android:color="@color/boxcolor"/>
 </shape>
