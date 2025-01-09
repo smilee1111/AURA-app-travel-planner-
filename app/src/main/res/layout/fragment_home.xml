@@ -8,48 +8,41 @@
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".ui.fragment.HomeFragment" >
-
     <ImageView
         android:id="@+id/ktmImg"
         android:layout_width="match_parent"
         android:layout_height="276dp"
         android:src="@drawable/ktm" />
-
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-        <TextView
-            android:id="@+id/nepalText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:text="Nepal, kathmandu"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-
+            <TextView
+                android:id="@+id/nepalText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:text="Nepal, kathmandu"
+                android:textSize="24sp"
+                android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_marginTop="8dp"
                 android:gravity="center_vertical">
-
                 <!-- Rating stars -->
                 <ImageView
                     android:id="@+id/ratingBar"
                     android:layout_width="134dp"
                     android:layout_height="40dp"
                     android:src="@drawable/ratingbar" />
-
                 <!-- Rating number beside stars -->
                 <TextView
                     android:id="@+id/ratingNum"
@@ -58,7 +51,6 @@
                     android:layout_marginLeft="0dp"
                     android:text="4.9R"
                     android:textSize="12sp" />
-
                 <TextView
                     android:id="@+id/costText"
                     android:layout_width="187dp"
@@ -70,21 +62,18 @@
                     android:layout_marginLeft="120dp"
                     android:textColor="@color/boxcolor"/>
             </LinearLayout>
-
             <TextView
                 android:id="@+id/estCost"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Estimated Cost"
                 android:layout_marginLeft="270dp"/>
-
             <TextView
                 android:id="@+id/abtNepal"
                 android:layout_width="274dp"
                 android:layout_height="143dp"
                 android:text="Nepal, a landlocked gem nestled in South Asia, is celebrated for its breathtaking mountains, lush green terrains, and rich cultural heritage. This small yet diverse country is a haven for nature lovers, adventurers, and spiritual seekers alike."
                 android:textSize="16dp" />
-
             <TextView
                 android:id="@+id/placeExp"
                 android:layout_width="match_parent"
@@ -93,11 +82,7 @@
                 android:textStyle="bold"
                 android:textSize="19dp"
                 android:textColor="@color/boxcolor"/>
-
         </LinearLayout>
     </ScrollView>
-
-
-
 
 </LinearLayout>
