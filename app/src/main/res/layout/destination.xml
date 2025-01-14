@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="8dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/card_background">
+
+    <!-- ImageView for the destination -->
+    <ImageView
+        android:id="@+id/destination_image"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="Destination Image" />
+
+    <!-- Layout for the text -->
+    <LinearLayout
+        android:id="@+id/destination_text_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/destination_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Destination Name"
+            android:textSize="18sp"
+            android:textColor="#000000"
+            android:fontFamily="sans-serif-medium"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:id="@+id/destination_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Starting from $500"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#555555"
+            android:fontFamily="sans-serif" />
+
+        <TextView
+            android:id="@+id/destination_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description..."
+            android:textSize="12sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#777777"
+            android:fontFamily="sans-serif" />
+
+        <TextView
+            android:id="@+id/destination_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="4.9R"
+            android:textSize="14sp"
+            android:layout_marginBottom="4dp"
+            android:textColor="#FF9800" />
+    </LinearLayout>
+</LinearLayout>
