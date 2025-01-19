@@ -22,6 +22,7 @@ class DashboardAdapter(
     // Define an interface for click events
     interface OnItemClickListener {
         fun onImageClick(position: Int)
+
     }
 
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

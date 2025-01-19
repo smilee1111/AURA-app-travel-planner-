@@ -12,6 +12,7 @@ import com.example.aura_app.R
 import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
 import com.example.aura_app.ui.fragment.CalenderFragment
+import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
 import com.example.aura_app.ui.fragment.ItineryFragment
 import com.example.aura_app.ui.fragment.ProfileFragment
@@ -39,9 +40,10 @@ class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListe
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
 
-        binding.bottomNavigationView.setOnItemSelectedListener {
-            when (it.itemId) {
+        binding.bottomNavigationView.setOnItemSelectedListener {menuItem->
+            when (menuItem.itemId) {
                 R.id.navHome -> replaceFragment(HomeFragment())
+                R.id.navExplore -> replaceFragment(ExploreFragment())
                 R.id.navCalender -> replaceFragment(CalenderFragment())
                 R.id.navItinery -> replaceFragment(ItineryFragment())
                 R.id.navProfile -> replaceFragment(ProfileFragment())
@@ -59,14 +61,24 @@ class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListe
 
     override fun onImageClick(position: Int) {
         if (position == 0) { // KTM image is clicked
-            replaceFragment(HomeFragment())
+            replaceFragment(ExploreFragment())
         }
     }
 
-    private fun replaceFragment(fragment: Fragment) {
-        supportFragmentManager.beginTransaction()
-            .replace(binding.FrameButton.id, fragment)
-            .addToBackStack(null)
-            .commit()
+    private fun replaceFragment(fragment: Fragment, addToBackStack: Boolean = false) {
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.FrameButton)
+        if (currentFragment != null && currentFragment::class == fragment::class) {
+            // Fragment is already displayed, no need to replace
+            return
+        }
+
+        val transaction = supportFragmentManager.beginTransaction()
+            .replace(R.id.FrameButton, fragment)
+
+        if (addToBackStack) {
+            transaction.addToBackStack(null)
+        }
+
+        transaction.commit()
     }
 }

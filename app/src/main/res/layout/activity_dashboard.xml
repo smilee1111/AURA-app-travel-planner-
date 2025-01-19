@@ -7,6 +7,67 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.DashboardActivity">
 
+
+
+
+    <TextView
+        android:id="@+id/welcText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="230dp"
+        android:text="Welcome"
+        android:textColor="@color/boxcolor"
+        android:textSize="35dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/deText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="160dp"
+        android:text="Discover and Explore"
+        android:textSize="23dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcText" />
+
+    <TextView
+        android:id="@+id/bestText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="88dp"
+        android:text="the best places in the world"
+        android:textSize="19dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/deText" />
+
+    <FrameLayout
+        android:id="@+id/FrameButton"
+        android:layout_width="411dp"
+        android:layout_height="411dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.75"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="406dp" />
+
+    </FrameLayout>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="wrap_content"
@@ -17,22 +78,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navbar" />
 
-    <FrameLayout
-        android:id="@+id/FrameButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="340dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/searchbar_sample"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Search"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/bestText" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerView"
-            android:layout_width="410dp"
-            android:layout_height="496dp" />
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
