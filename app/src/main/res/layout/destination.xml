@@ -5,8 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:layout_margin="8dp"
-    android:background="@drawable/card_background">
+    android:layout_margin="8dp">
 
     <!-- ImageView for the destination -->
     <ImageView
@@ -14,8 +13,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:scaleType="centerCrop"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="Destination Image" />
+        android:layout_marginEnd="8dp" />
 
     <!-- Layout for the text -->
     <LinearLayout
