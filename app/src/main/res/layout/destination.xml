@@ -3,27 +3,58 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
     android:padding="8dp"
     android:layout_margin="8dp">
 
-    <!-- ImageView for the destination -->
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Welcome"
+        android:textColor="@color/blue"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="30sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Discover and explore"
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="22sp">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="The Best Places "
+        android:layout_marginBottom="10dp"
+        android:textStyle="bold"
+        android:textSize="18sp">
+
+    </TextView>
+
+  
+
+
+    <!-- Layout for the text -->
+
     <ImageView
         android:id="@+id/destination_image"
         android:layout_width="120dp"
         android:layout_height="120dp"
+        android:layout_marginEnd="8dp"
         android:scaleType="centerCrop"
-        android:layout_marginEnd="8dp" />
+        android:src="@drawable/ktm" />
 
-    <!-- Layout for the text -->
-    <LinearLayout
-        android:id="@+id/destination_text_layout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
+    <TextView
             android:id="@+id/destination_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -61,5 +92,6 @@
             android:textSize="14sp"
             android:layout_marginBottom="4dp"
             android:textColor="#FF9800" />
-    </LinearLayout>
+
 </LinearLayout>
+
