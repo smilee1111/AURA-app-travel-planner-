@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="439dp"
-        android:layout_height="296dp"
+        android:layout_width="449dp"
+        android:layout_height="272dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
         android:src="@drawable/cover"
