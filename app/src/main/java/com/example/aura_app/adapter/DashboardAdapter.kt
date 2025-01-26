@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
 import com.example.aura_app.ui.activity.DashboardActivity
+import com.example.aura_app.ui.activity.HomeActivity
 
 class DashboardAdapter(
     private val context: Context,
@@ -16,7 +17,7 @@ class DashboardAdapter(
     private val nameList: ArrayList<String>,
     private val descList: ArrayList<String>,
     private val priceList: ArrayList<String>,
-    private val itemClickListener: DashboardActivity
+    private val itemClickListener: HomeActivity
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
     // Define an interface for click events
