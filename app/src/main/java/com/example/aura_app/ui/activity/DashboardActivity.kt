@@ -18,27 +18,16 @@ import com.example.aura_app.ui.fragment.ItineryFragment
 import com.example.aura_app.ui.fragment.ProfileFragment
 
 class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListener {
-
-    lateinit var binding: ActivityDashboardBinding
+    lateinit var binding:ActivityDashboardBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imageList = arrayListOf(R.drawable.ktm, R.drawable.boudha, R.drawable.himal)
-        val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Other Destination")
-        val descList = arrayListOf(
-            "Nepal, it is mainly situated in the Himalayas...",
-            "Home to numerous lakes, villages...",
-            "Description of another destination"
-        )
-        val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750")
-
-        val recyclerView: RecyclerView = findViewById(R.id.RecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
+        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {menuItem->
             when (menuItem.itemId) {
