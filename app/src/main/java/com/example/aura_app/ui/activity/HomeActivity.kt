@@ -33,7 +33,7 @@ class HomeActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListener {
 
         val recyclerView: RecyclerView = findViewById(R.id.RecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
+//        recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
