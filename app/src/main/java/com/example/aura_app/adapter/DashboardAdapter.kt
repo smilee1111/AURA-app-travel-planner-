@@ -16,7 +16,7 @@ class DashboardAdapter(
     private val nameList: ArrayList<String>,
     private val descList: ArrayList<String>,
     private val priceList: ArrayList<String>,
-    private val itemClickListener: DashboardActivity
+    private val itemClickListener: HomeActivity
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
     // Define an interface for click events
