@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/signup"
+    android:background="@drawable/travel"
     tools:context=".ui.activity.SignupActivity"
    >
 
@@ -13,31 +13,29 @@
         android:id="@+id/hiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="273dp"
-        android:layout_marginEnd="22dp"
-        android:text="Hi There"
+        android:layout_marginTop="328dp"
+        android:text="Hi There!"
         android:textColor="@color/blue"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/hiImage"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="144dp" />
 
     <ImageView
         android:id="@+id/hiImage"
         android:layout_width="74dp"
         android:layout_height="61dp"
-        android:layout_marginTop="252dp"
-        android:layout_marginEnd="36dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="316dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hiimage" />
+        app:srcCompat="@drawable/hiimage"
+        tools:layout_editor_absoluteX="52dp" />
 
     <TextView
         android:id="@+id/caption"
-        android:layout_width="282dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="53dp"
+        android:layout_width="327dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="40dp"
         android:text="Make your travel journey exciting by joining us."
         android:textAlignment="center"
         android:textSize="19sp"
@@ -46,16 +44,17 @@
 
     <Button
         android:id="@+id/signUpButton"
-        android:layout_width="158dp"
-        android:layout_height="54dp"
+        android:layout_width="159dp"
+        android:layout_height="61dp"
         android:layout_marginStart="127dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="28dp"
         android:layout_marginEnd="108dp"
         android:backgroundTint="@color/blue"
         android:text="Sign Up"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
@@ -63,8 +62,8 @@
         android:id="@+id/EmailTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
-        android:layout_marginTop="21dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="12dp"
         android:text="Enter Your Email"
         android:textColor="@color/blue"
         android:textSize="20sp"
@@ -92,7 +91,7 @@
         android:id="@+id/userTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="7dp"
         android:text="Enter Your Username"
         android:textColor="@color/blue"
@@ -122,7 +121,7 @@
         android:id="@+id/passTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="31dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
         android:text="Enter Your Password"
         android:textColor="@color/blue"

@@ -20,20 +20,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navbar" />
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="340dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/searchbar_sample"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:hint="Search"
-        android:padding="10dp"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/black"
+    <FrameLayout
+        android:id="@+id/FrameButton"
+        android:layout_width="409dp"
+        android:layout_height="649dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bestText" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

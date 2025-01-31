@@ -12,8 +12,8 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="311dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="372dp"
         android:text="Welcome Again!"
         android:textColor="@color/blue"
         android:textSize="30sp"
@@ -38,14 +38,12 @@
         android:id="@+id/textInputLayout"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="11dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3">
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="488dp">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/Username"
-            android:layout_width="321dp"
+            android:layout_width="370dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape" />
@@ -55,8 +53,8 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="43dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
         android:text="Enter Password"
         android:textColor="@color/blue"
         android:textSize="20sp"
@@ -68,48 +66,36 @@
         android:id="@+id/password"
         android:layout_width="409dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="321dp"
+            android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <RadioButton
-        android:id="@+id/radioButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginTop="14dp"
-        android:text="Agree to terms and condition"
-        android:textColor="@color/blue"
-        android:textSize="15sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
     <Button
         android:id="@+id/button"
         android:layout_width="155dp"
         android:layout_height="59dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginTop="64dp"
         android:backgroundTint="@color/blue"
         android:text="log in"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioButton" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/AccTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="96dp"
+        android:layout_marginEnd="152dp"
         android:text="Don't have an Account?"
         android:textColor="@color/blue"
         android:textSize="19sp"
@@ -128,6 +114,6 @@
         android:textColor="@color/blue"
         android:textSize="19sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="788dp" />
+        tools:layout_editor_absoluteX="316dp"
+        tools:layout_editor_absoluteY="813dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
