@@ -32,7 +32,8 @@ class HomeActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListener {
         )
         val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750")
 
-        val recyclerView: RecyclerView = findViewById(R.id.RecyclerView)
+        val recyclerView: RecyclerView = findViewById(R.id.recyclerView)
+
         recyclerView.layoutManager = LinearLayoutManager(this)
 //        recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->

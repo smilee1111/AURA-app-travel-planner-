@@ -77,4 +77,8 @@ class DashboardActivity : AppCompatActivity() {
 
         transaction.commit()
     }
+
+    fun onImageClick(position: Int) {
+
+    }
 }
