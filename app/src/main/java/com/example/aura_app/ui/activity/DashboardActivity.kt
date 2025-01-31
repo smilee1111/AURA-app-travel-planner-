@@ -6,15 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
-import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
 import com.example.aura_app.ui.fragment.CalenderFragment
 import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
-import com.example.aura_app.ui.fragment.ItineryFragment
 import com.example.aura_app.ui.fragment.ProfileFragment
 
 class DashboardActivity : AppCompatActivity() {
