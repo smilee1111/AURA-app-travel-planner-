@@ -8,6 +8,8 @@
     tools:context=".ui.activity.DashboardActivity">
 
 
+
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
         android:layout_width="wrap_content"
@@ -18,23 +20,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/navbar" />
 
-    <FrameLayout
-        android:id="@+id/FrameButton"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="340dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/searchbar_sample"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Search"
+        android:padding="10dp"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/bestText" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/RecyclerView"
-            tools:listitem="@layout/destination"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,13 +16,12 @@ class DashboardAdapter(
     private val nameList: ArrayList<String>,
     private val descList: ArrayList<String>,
     private val priceList: ArrayList<String>,
-    private val itemClickListener: HomeActivity
+    private val itemClickListener: DashboardActivity
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
     // Define an interface for click events
     interface OnItemClickListener {
         fun onImageClick(position: Int)
-
     }
 
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
