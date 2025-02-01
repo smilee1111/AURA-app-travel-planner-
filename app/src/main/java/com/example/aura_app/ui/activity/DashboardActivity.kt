@@ -12,11 +12,12 @@ import com.example.aura_app.R
 import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
 import com.example.aura_app.ui.fragment.CalenderFragment
+import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
 import com.example.aura_app.ui.fragment.ItineryFragment
 import com.example.aura_app.ui.fragment.ProfileFragment
 
-class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListener {
+class DashboardActivity : AppCompatActivity(){
 
     lateinit var binding: ActivityDashboardBinding
 
@@ -26,22 +27,13 @@ class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListe
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val imageList = arrayListOf(R.drawable.ktm, R.drawable.boudha, R.drawable.himal)
-        val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Other Destination")
-        val descList = arrayListOf(
-            "Nepal, it is mainly situated in the Himalayas...",
-            "Home to numerous lakes, villages...",
-            "Description of another destination"
-        )
-        val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750")
 
-        val recyclerView: RecyclerView = findViewById(R.id.RecyclerView)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = DashboardAdapter(this, imageList, nameList, descList, priceList, this)
+        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navHome -> replaceFragment(HomeFragment())
+                R.id.navExplore->replaceFragment(ExploreFragment())
                 R.id.navCalender -> replaceFragment(CalenderFragment())
                 R.id.navItinery -> replaceFragment(ItineryFragment())
                 R.id.navProfile -> replaceFragment(ProfileFragment())
@@ -57,11 +49,7 @@ class DashboardActivity : AppCompatActivity(), DashboardAdapter.OnItemClickListe
         }
     }
 
-    override fun onImageClick(position: Int) {
-        if (position == 0) { // KTM image is clicked
-            replaceFragment(HomeFragment())
-        }
-    }
+
 
     private fun replaceFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
