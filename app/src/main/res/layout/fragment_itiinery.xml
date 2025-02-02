@@ -13,6 +13,7 @@
         android:layout_height="wrap_content">
 
         <!-- ImageView -->
+
         <ImageView
             android:id="@+id/itineryImg"
             android:layout_width="409dp"
@@ -20,7 +21,7 @@
             android:src="@drawable/itinery"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/destinationTxt"

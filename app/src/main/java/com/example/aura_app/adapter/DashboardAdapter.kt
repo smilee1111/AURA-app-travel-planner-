@@ -8,7 +8,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
-import com.example.aura_app.ui.activity.DashboardActivity
 
 class DashboardAdapter(
     private val context: Context,
@@ -16,10 +15,9 @@ class DashboardAdapter(
     private val nameList: ArrayList<String>,
     private val descList: ArrayList<String>,
     private val priceList: ArrayList<String>,
-    private val itemClickListener: DashboardActivity
+    private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
-    // Define an interface for click events
     interface OnItemClickListener {
         fun onImageClick(position: Int)
     }
@@ -42,7 +40,6 @@ class DashboardAdapter(
         holder.desc.text = descList[position]
         holder.price.text = priceList[position]
 
-        // Set onClickListener for the ImageView
         holder.image.setOnClickListener {
             itemClickListener.onImageClick(position)
         }
