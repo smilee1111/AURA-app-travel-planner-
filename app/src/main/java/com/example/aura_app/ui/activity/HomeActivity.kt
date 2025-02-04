@@ -5,15 +5,21 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
-import com.example.aura_app.databinding.ActivityGetStartedBinding
+import com.example.aura_app.adapter.DashboardAdapter
+import com.example.aura_app.databinding.ActivityDashboardBinding
+import com.example.aura_app.databinding.ActivityHomeBinding
+import com.example.aura_app.ui.fragment.ExploreFragment
 
-class GetStartedActivity : AppCompatActivity() {
-    lateinit var binding: ActivityGetStartedBinding
+class HomeActivity : AppCompatActivity() {
+    lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        binding=ActivityGetStartedBinding.inflate(layoutInflater)
+        binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
@@ -23,3 +29,4 @@ class GetStartedActivity : AppCompatActivity() {
         }
     }
 }
+

@@ -8,29 +8,35 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
+import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
 import com.example.aura_app.ui.fragment.CalenderFragment
+import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
-import com.example.aura_app.ui.fragment.ItineryFragment
+import com.example.aura_app.ui.fragment.ItiineryFragment
 import com.example.aura_app.ui.fragment.ProfileFragment
 
-class DashboardActivity : AppCompatActivity(){
+class DashboardActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityDashboardBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.navHome -> replaceFragment(HomeFragment())
-                R.id.navCalender ->replaceFragment(CalenderFragment())
-                R.id.navItinery->replaceFragment(ItineryFragment())
-                R.id.navProfile ->replaceFragment(ProfileFragment())
+                R.id.navExplore -> replaceFragment(ExploreFragment())
+                R.id.navCalender -> replaceFragment(CalenderFragment())
+                R.id.navItinery -> replaceFragment(ItiineryFragment())
+                R.id.navProfile -> replaceFragment(ProfileFragment())
                 else -> {}
             }
             true
@@ -42,6 +48,7 @@ class DashboardActivity : AppCompatActivity(){
             insets
         }
     }
+
     private fun replaceFragment(fragment: Fragment) {
         val fragmentManager: FragmentManager =
             supportFragmentManager
