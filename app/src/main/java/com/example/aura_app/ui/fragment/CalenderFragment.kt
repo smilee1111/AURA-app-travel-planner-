@@ -5,8 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
+import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.aura_app.R
 import java.text.SimpleDateFormat
@@ -16,6 +15,8 @@ class CalenderFragment : Fragment() {
 
     private lateinit var btnPickDate: Button
     private lateinit var tvSelectedDate: TextView
+    private lateinit var etTripDetail: EditText
+    private lateinit var btnSaveTrip: Button
     private val calendar = Calendar.getInstance()
 
     override fun onCreateView(
@@ -26,8 +27,11 @@ class CalenderFragment : Fragment() {
 
         btnPickDate = view.findViewById(R.id.btnPickDate)
         tvSelectedDate = view.findViewById(R.id.tvSelectedDate)
+        etTripDetail = view.findViewById(R.id.etTripDetail)
+        btnSaveTrip = view.findViewById(R.id.btnSaveTrip)
 
         btnPickDate.setOnClickListener { showDatePicker() }
+        btnSaveTrip.setOnClickListener { saveTripDetails() }
 
         return view
     }
@@ -47,7 +51,20 @@ class CalenderFragment : Fragment() {
     }
 
     private fun updateDateText() {
-        val format = SimpleDateFormat("EEE, MMM dd", Locale.getDefault())
+        val format = SimpleDateFormat("EEE, MMM dd, yyyy", Locale.getDefault())
         tvSelectedDate.text = format.format(calendar.time)
+    }
+
+    private fun saveTripDetails() {
+        val tripDetail = etTripDetail.text.toString().trim()
+        val tripDate = tvSelectedDate.text.toString()
+
+        if (tripDetail.isEmpty()) {
+            Toast.makeText(requireContext(), "Please enter trip details!", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        // Save trip details (Here you can store in a database or shared preferences)
+        Toast.makeText(requireContext(), "Trip saved: $tripDetail on $tripDate", Toast.LENGTH_SHORT).show()
     }
 }

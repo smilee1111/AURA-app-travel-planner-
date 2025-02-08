@@ -14,12 +14,17 @@
     <!-- Button to open DatePicker -->
 
     <!-- TextView to display selected date -->
+
+    <!-- Trip Detail Input -->
+
+    <!-- Save Button -->
+
     <ImageView
         android:id="@+id/ivCalendarIcon"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:src="@drawable/ic_calendar_clock"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -28,9 +33,9 @@
         android:id="@+id/btnPickDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/gray"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/gray"
         android:text="Pick a date"
         android:textColor="@color/black"
         app:layout_constraintStart_toEndOf="@+id/ivCalendarIcon"
@@ -40,12 +45,37 @@
         android:id="@+id/tvSelectedDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="20dp"
-        android:text="Sat, Dec 21"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="36dp"
+        android:text="Select a Date"
         android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivCalendarIcon" />
+        app:layout_constraintTop_toBottomOf="@+id/btnPickDate" />
+
+    <EditText
+        android:id="@+id/etTripDetail"
+        android:layout_width="241dp"
+        android:layout_height="38dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="86dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="Enter trip details"
+        android:padding="10dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvSelectedDate" />
+
+    <Button
+        android:id="@+id/btnSaveTrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="21dp"
+        android:text="Save Trip"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etTripDetail" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
