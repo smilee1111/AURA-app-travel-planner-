@@ -13,12 +13,15 @@ import com.example.aura_app.adapter.DashboardAdapter
 class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
-    private val imageList = arrayListOf(R.drawable.ktm, R.drawable.boudha, R.drawable.himal)
-    private val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Other Destination")
+    private val imageList = arrayListOf(R.drawable.ktm, R.drawable.boudha, R.drawable.thailand,R.drawable.italy,R.drawable.india)
+    private val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Thailand")
     private val descList = arrayListOf(
-        "Nepal, it is mainly situated in the Himalayas...",
-        "Home to numerous lakes, villages...",
-        "Description of another destination"
+        "Nepal it is mainly situated in the Himalayas, but also includes parts of the Indo Gangetic Plain.",
+        "Home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters. " +
+                "The country is also known for its ski resorts and hiking trails.",
+        "Thailand known for tropical beaches, opulent royal palaces, ancient ruins and ornate temples displaying figures of Buddha. ",
+        "Italy, a European country with a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine.",
+        "India is home to many popular destinations, including Agra, Amritsar, and the Andaman & Nicobar Islands"
     )
     private val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750")
 
