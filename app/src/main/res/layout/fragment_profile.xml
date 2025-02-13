@@ -159,6 +159,7 @@
             android:id="@+id/ProfileRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            tools:listitem="@layout/profilerecycle"
             android:layout_marginTop="44dp"
             android:scrollbars="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
