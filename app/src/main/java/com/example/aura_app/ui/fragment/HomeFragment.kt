@@ -23,7 +23,7 @@ class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
         "Italy, a European country with a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine.",
         "India is home to many popular destinations, including Agra, Amritsar, and the Andaman & Nicobar Islands"
     )
-    private val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750")
+    private val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750","Starting from $950","Starting from $550")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
