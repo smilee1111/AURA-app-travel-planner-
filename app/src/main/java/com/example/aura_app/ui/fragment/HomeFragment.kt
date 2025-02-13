@@ -13,17 +13,21 @@ import com.example.aura_app.adapter.DashboardAdapter
 class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
-    private val imageList = arrayListOf(R.drawable.ktm, R.drawable.boudha, R.drawable.thailand,R.drawable.italy,R.drawable.india)
-    private val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Thailand")
+    private val imageList = arrayListOf(R.drawable.ktm, R.drawable.bern, R.drawable.thailand,
+        R.drawable.italy,R.drawable.india,R.drawable.france,R.drawable.usa)
+    private val nameList = arrayListOf("Nepal, Kathmandu", "Switzerland, Bern", "Thailand,Bangkok","Italy,Rome",
+        "India,New Delhi","France,Paris","Usa,Washington DC")
     private val descList = arrayListOf(
         "Nepal it is mainly situated in the Himalayas, but also includes parts of the Indo Gangetic Plain.",
-        "Home to numerous lakes, villages and the high peaks of the Alps. Its cities contain medieval quarters. " +
-                "The country is also known for its ski resorts and hiking trails.",
-        "Thailand known for tropical beaches, opulent royal palaces, ancient ruins and ornate temples displaying figures of Buddha. ",
-        "Italy, a European country with a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine.",
-        "India is home to many popular destinations, including Agra, Amritsar, and the Andaman & Nicobar Islands"
+        "Home to numerous lakes, villages and high peaks of Alps. Its cities contain medieval quarters.",
+        "Thailand known for tropical beaches,royal palaces, ancient temples displaying figures of Buddha. ",
+        "Italy,country with long Mediterranean coastline, has a powerful mark on Western culture & cuisine.",
+        "India is home to popular destinations, including Agra, Amritsar, and the Andaman & Nicobar Islands",
+        "France is famed for its fashion houses, art museums the Louvre and monuments like Eiffel Tower.",
+        "Some of the popular places to visit (USA) are LA, Chicago, New York, San Francisco, Las Vegas."
     )
-    private val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750","Starting from $950","Starting from $550")
+    private val priceList = arrayListOf("Starting from $500", "Starting from $1000", "Starting from $750",
+        "Starting from $950","Starting from $550","Starting from $1000","Starting from $1500")
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
