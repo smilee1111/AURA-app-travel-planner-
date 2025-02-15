@@ -13,7 +13,6 @@ import com.example.aura_app.adapter.ExploreAdapter
 class ExploreFragment : Fragment() {
 
     private lateinit var recyclerView: RecyclerView
-
     // Sample data
     private val imageList = arrayListOf(R.drawable.ktm, R.drawable.swiss, R.drawable.thailand,R.drawable.italy,
         R.drawable.india,R.drawable.france,R.drawable.usa,)
