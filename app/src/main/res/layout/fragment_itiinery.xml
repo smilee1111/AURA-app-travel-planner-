@@ -78,9 +78,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/plan1"
-                android:layout_width="match_parent"
+                android:layout_width="331dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape"/>
+                android:background="@drawable/shape" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -94,9 +94,9 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/plan2"
-                android:layout_width="match_parent"
+                android:layout_width="331dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/shape"/>
+                android:background="@drawable/shape" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -110,7 +110,7 @@
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/plan4"
-                android:layout_width="match_parent"
+                android:layout_width="335dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape" />
         </com.google.android.material.textfield.TextInputLayout>

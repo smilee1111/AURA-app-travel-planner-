@@ -11,10 +11,10 @@ import com.example.aura_app.R
 
 class DashboardAdapter(
     private val context: Context,
-    private val imageList: ArrayList<Int>,
-    private val nameList: ArrayList<String>,
-    private val descList: ArrayList<String>,
-    private val priceList: ArrayList<String>,
+    private val imageList: ArrayList<Int>,  // filtered image list
+    private val nameList: ArrayList<String>,  // filtered name list
+    private val descList: ArrayList<String>,  // filtered description list
+    private val priceList: ArrayList<String>,  // filtered price list
     private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 

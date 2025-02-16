@@ -15,12 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="230dp"
+        android:layout_marginStart="16dp"
         android:text="Welcome"
         android:textColor="@color/boxcolor"
         android:textSize="35dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -28,44 +28,59 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="160dp"
-        android:text="Discover and Explore"
-        android:textSize="23dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/welcText" />
-
+        android:layout_marginStart="16dp"
+    android:text="Discover and Explore"
+    android:textSize="23dp"
+    android:textStyle="bold"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/welcText" />
 
     <TextView
         android:id="@+id/bestText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="108dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
         android:text="the best places in the world"
         android:textSize="19dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/deText" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RecyclerView"
-        android:layout_width="412dp"
-        android:layout_height="507dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_marginTop="75dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bestText"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bestText" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <androidx.appcompat.widget.SearchView
-        android:layout_width="228dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="95dp"
+    <SearchView
+        android:id="@+id/SearchView"
+        android:layout_width="363dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
         android:background="@drawable/searchbar_sample"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:iconifiedByDefault="false"
+        android:padding="8dp"
+        android:queryHint="Search places..."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/bestText" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="157dp"
+        android:layout_height="143dp"
+        android:layout_marginStart="6dp"
+        android:src="@drawable/mainimg"
+        app:layout_constraintStart_toEndOf="@+id/bestText"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
