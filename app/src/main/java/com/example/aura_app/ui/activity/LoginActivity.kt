@@ -9,27 +9,35 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.example.aura_app.R
 import com.example.aura_app.databinding.ActivityLoginBinding
+import com.example.aura_app.repository.UserRepositoryImpl
+import com.example.aura_app.viewModel.UserViewModel
 
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
-
+    lateinit var userViewModel: UserViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        var repo =UserRepositoryImpl()
+        userViewModel = UserViewModel(repo)
         // Handle Login Button Click
         binding.LoginBtn.setOnClickListener{
-            val username = binding.Username.text.toString().trim()
-            val password = binding.pass.text.toString().trim()
+            val email = binding.email.text.toString().trim()
+            val password = binding.password.text.toString().trim()
 
-            if (username.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "Please fill out the credentials", Toast.LENGTH_SHORT).show()
-            } else {
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
+            userViewModel.login(email,password){
+                    success,message->
+                if(success){
+                    Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
+                    val intent = Intent (this@LoginActivity,DashboardActivity::class.java)
+                    startActivity(intent)
+                }else{
+                    Toast.makeText(this@LoginActivity,
+                        message, Toast.LENGTH_LONG).show()
+                }
             }
         }
 
