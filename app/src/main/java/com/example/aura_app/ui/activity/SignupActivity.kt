@@ -28,13 +28,7 @@ class SignupActivity : AppCompatActivity() {
             val email = binding.textInputLayout2.editText?.text.toString().trim()
             val password = binding.passS.text.toString().trim()
 
-            if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
-                Toast.makeText(this, "All fields must be filled!", Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show()
-                val intent = Intent(this, DashboardActivity::class.java)
-                startActivity(intent)
-            }
+
             userViewModel.signup(email, password) { success, message, userId ->
                 if (success) {
                     val userModel = UserModel(userId, username, email, password)
@@ -44,7 +38,7 @@ class SignupActivity : AppCompatActivity() {
                             startActivity(Intent(this, LoginActivity::class.java))
                             finish()
                         } else {
-                            Toast.makeText(this, dbMessage, Toast.LENGTH_LONG).show()
+                            Toast.makeText(this, "email already in use.", Toast.LENGTH_LONG).show()
                         }
                     }
                 } else {
