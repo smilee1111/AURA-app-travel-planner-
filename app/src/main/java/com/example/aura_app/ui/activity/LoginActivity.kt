@@ -39,6 +39,11 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        binding.forgotPass.setOnClickListener{
+            val intent = Intent(this,ForgotPasswordActivity::class.java)
+            startActivity(intent)
+        }
+
         // Handle System Window Insets for UI Adjustments
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
