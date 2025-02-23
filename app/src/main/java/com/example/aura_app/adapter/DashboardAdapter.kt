@@ -8,18 +8,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
+import com.squareup.picasso.Picasso
 
 class DashboardAdapter(
     private val context: Context,
-    private val imageList: ArrayList<Int>,  // filtered image list
-    private val nameList: ArrayList<String>,  // filtered name list
-    private val descList: ArrayList<String>,  // filtered description list
-    private val priceList: ArrayList<String>,  // filtered price list
+    private val imageList: List<String>,
+    private val nameList: List<String>,
+    private val descList: List<String>,
+    private val priceList: List<String>,
     private val itemClickListener: OnItemClickListener
 ) : RecyclerView.Adapter<DashboardAdapter.DashboardViewHolder>() {
 
     interface OnItemClickListener {
-        fun onImageClick(position: Int)
+        fun onItemClick(position: Int)
     }
 
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -35,17 +36,23 @@ class DashboardAdapter(
     }
 
     override fun onBindViewHolder(holder: DashboardViewHolder, position: Int) {
-        holder.image.setImageResource(imageList[position])
+        val imageUrl = imageList[position]
+
+        // Load the image using Picasso
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.pp)
+            .error(R.drawable.pp)
+            .into(holder.image)
+
         holder.name.text = nameList[position]
         holder.desc.text = descList[position]
         holder.price.text = priceList[position]
 
-        holder.image.setOnClickListener {
-            itemClickListener.onImageClick(position)
+        holder.itemView.setOnClickListener {
+            itemClickListener.onItemClick(position)
         }
     }
 
-    override fun getItemCount(): Int {
-        return nameList.size
-    }
+    override fun getItemCount(): Int = nameList.size
 }

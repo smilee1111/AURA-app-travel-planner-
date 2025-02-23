@@ -4,6 +4,7 @@ import android.os.Parcel
 import android.os.Parcelable
 
 data class DestinationModel(
+    var destImageUrl: String = "",
     var destId: String = "",
     var destName: String ="",
     var destDetail :String = "",
@@ -14,10 +15,12 @@ data class DestinationModel(
         parcel.readString() ?: "",
         parcel.readString() ?: "",
         parcel.readString() ?: "",
+        parcel.readString() ?: "",
     ) {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+        parcel.writeString(destImageUrl)
         parcel.writeString(destId)
         parcel.writeString(destName)
         parcel.writeString(destDetail)
