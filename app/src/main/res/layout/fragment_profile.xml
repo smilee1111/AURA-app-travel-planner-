@@ -74,37 +74,11 @@
             app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
         <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="35dp"
-            android:text="Followers"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView11"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
-            android:id="@+id/textView10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
-            android:layout_marginEnd="82dp"
-            android:text="Following"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-        <TextView
             android:id="@+id/textView11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="94dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="36dp"
             android:text="Posts"
             android:textColor="@color/black"
             android:textSize="16sp"
@@ -113,34 +87,16 @@
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/textView13"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="67dp"
-            android:layout_marginTop="4dp"
-            android:text="1000"
-            app:layout_constraintStart_toEndOf="@+id/textView15"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
-
-        <TextView
-            android:id="@+id/textView14"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:layout_marginEnd="106dp"
-            android:text="990"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
-        <TextView
             android:id="@+id/textView15"
-            android:layout_width="9dp"
-            android:layout_height="16dp"
-            android:layout_marginStart="109dp"
-            android:layout_marginTop="4dp"
+            android:layout_width="24dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="16dp"
             android:text="0"
+            android:textSize="20dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
 
         <TextView
             android:id="@+id/textView16"
@@ -159,12 +115,13 @@
             android:id="@+id/ProfileRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            tools:listitem="@layout/profilerecycle"
             android:layout_marginTop="44dp"
             android:scrollbars="horizontal"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+            app:layout_constraintTop_toBottomOf="@+id/textView8"
+            tools:listitem="@layout/profilerecycle" />
+
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/addHighlightFab"
             android:layout_width="wrap_content"
@@ -173,6 +130,17 @@
             android:src="@drawable/baseline_add_24"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/logoutBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="44dp"
+            android:text="Logout"
+            android:backgroundTint="@color/boxcolor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

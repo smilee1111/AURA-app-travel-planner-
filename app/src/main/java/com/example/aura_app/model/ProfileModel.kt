@@ -8,6 +8,7 @@ data class ProfileModel(
     var coverImageUrl: String = "",
     var highlights: List<String> = listOf(),
     var posts: Int = 0,
+    var userId: String = "",
     var username: String = "" // Add username
 ) : Parcelable {
     constructor(parcel: Parcel) : this(
@@ -15,14 +16,18 @@ data class ProfileModel(
         parcel.readString() ?: "",
         parcel.createStringArrayList() ?: listOf(),
         parcel.readInt(),
+        parcel.readString() ?: "",
         parcel.readString() ?: ""
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
+
         parcel.writeString(profileImageUrl)
+
         parcel.writeString(coverImageUrl)
         parcel.writeStringList(highlights)
         parcel.writeInt(posts)
+        parcel.writeString(userId)
         parcel.writeString(username)
     }
 
