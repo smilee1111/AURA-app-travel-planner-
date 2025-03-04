@@ -14,28 +14,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="328dp"
-        android:layout_marginEnd="125dp"
         android:text="Hi There!"
         android:textColor="@color/blue"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="144dp" />
 
     <ImageView
         android:id="@+id/hiImage"
         android:layout_width="74dp"
         android:layout_height="61dp"
-        android:layout_marginStart="52dp"
         android:layout_marginTop="316dp"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hiimage" />
+        app:srcCompat="@drawable/hiimage"
+        tools:layout_editor_absoluteX="52dp" />
 
     <TextView
         android:id="@+id/caption"
-        android:layout_width="321dp"
-        android:layout_height="48dp"
+        android:layout_width="327dp"
+        android:layout_height="58dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:text="Make your travel journey exciting by joining us."

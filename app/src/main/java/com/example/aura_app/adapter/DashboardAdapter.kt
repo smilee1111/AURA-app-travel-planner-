@@ -23,11 +23,13 @@ class DashboardAdapter(
         fun onItemClick(position: Int)
     }
 
+
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.image)
         val name: TextView = itemView.findViewById(R.id.nameText)
         val desc: TextView = itemView.findViewById(R.id.descText)
         val price: TextView = itemView.findViewById(R.id.priceText)
+
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DashboardViewHolder {

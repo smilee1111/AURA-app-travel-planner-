@@ -18,10 +18,11 @@ import com.example.aura_app.viewModel.DestinationViewModel
 class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
 
     private lateinit var recyclerView: RecyclerView
+    private lateinit var searchView: SearchView
     private lateinit var adapter: DashboardAdapter
     private lateinit var viewModel: DestinationViewModel
 
-    private var imageList = ArrayList<String>() // Placeholder for now
+    private var imageList = ArrayList<String>()
     private var nameList = ArrayList<String>()
     private var descList = ArrayList<String>()
     private var priceList = ArrayList<String>()
@@ -35,6 +36,17 @@ class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
         recyclerView = view.findViewById(R.id.RecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                filter(query)
+                return true
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                filter(newText)
+                return true
+            }
+        })
         val repository = DestinationRepositoryImpl()
         viewModel = DestinationViewModel(repository)
 
@@ -52,7 +64,34 @@ class HomeFragment : Fragment(), DashboardAdapter.OnItemClickListener {
             updateRecyclerView(destinations)
         }
     }
+    private var filteredNames = ArrayList(nameList)
+    private var filteredImages = ArrayList(imageList)
+    private var filteredDescs = ArrayList(descList)
+    private var filteredPrices = ArrayList(priceList)
+    private fun filter(query: String?) {
+        filteredNames.clear()
+        filteredImages.clear()
+        filteredDescs.clear()
+        filteredPrices.clear()
 
+        if (!query.isNullOrEmpty()) {
+            for (i in nameList.indices) {
+                if (nameList[i].contains(query, ignoreCase = true)) {
+                    filteredNames.add(nameList[i])
+                    filteredImages.add(imageList[i])
+                    filteredDescs.add(descList[i])
+                    filteredPrices.add(priceList[i])
+                }
+            }
+        } else {
+            filteredNames.addAll(nameList)
+            filteredImages.addAll(imageList)
+            filteredDescs.addAll(descList)
+            filteredPrices.addAll(priceList)
+        }
+
+        recyclerView.adapter?.notifyDataSetChanged()
+    }
     private fun updateRecyclerView(destinations: List<DestinationModel>) {
         imageList.clear()
         nameList.clear()

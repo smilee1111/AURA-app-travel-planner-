@@ -67,53 +67,52 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/textInputLayout5"/>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/PlanItinery"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="22dp"
+        <EditText
+            android:id="@+id/Plan1"
+            android:layout_width="360dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Plan1"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/Create">
+            app:layout_constraintTop_toBottomOf="@+id/Create" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/plan1"
-                android:layout_width="331dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/PlanItinery3"
-            android:layout_width="409dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="12dp"
+        <EditText
+            android:id="@+id/Plan2"
+            android:layout_width="360dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Plan2"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/PlanItinery">
+            app:layout_constraintTop_toBottomOf="@+id/Plan1" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/plan2"
-                android:layout_width="331dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/planitinery4"
-            android:layout_width="412dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="1dp"
-            android:layout_marginTop="10dp"
+        <EditText
+            android:id="@+id/plan3"
+            android:layout_width="360dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Plan3"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/PlanItinery3">
+            app:layout_constraintTop_toBottomOf="@+id/Plan2" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/plan4"
-                android:layout_width="335dp"
-                android:layout_height="wrap_content"
-                android:background="@drawable/shape" />
-        </com.google.android.material.textfield.TextInputLayout>
+        <EditText
+            android:id="@+id/plan4"
+            android:layout_width="360dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="19dp"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Plan4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/plan3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
