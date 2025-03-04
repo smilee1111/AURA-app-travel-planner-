@@ -5,6 +5,7 @@ import com.example.aura_app.repository.UserRepository
 import com.google.firebase.auth.FirebaseUser
 
 class UserViewModel(private val repo: UserRepository) { // Made repo private
+
     fun login(email: String, password: String, callback: (Boolean, String) -> Unit) {
         repo.login(email, password, callback)
     }

@@ -10,4 +10,5 @@ interface UserRepository {
     fun forgetPassword(email: String, callback: (Boolean, String) -> Unit)
     fun getCurrentUser(): FirebaseUser?
     fun logout(callback: (Boolean, String) -> Unit) // NEW FUNCTION
+    fun getUserById(userId: String, callback: (UserModel?) -> Unit)
 }

@@ -3,8 +3,11 @@ package com.example.aura_app.repository
 import com.example.aura_app.model.UserModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class UserRepositoryImpl : UserRepository {
 
@@ -25,7 +28,11 @@ class UserRepositoryImpl : UserRepository {
     override fun signup(email: String, password: String, callback: (Boolean, String, String) -> Unit) {
         auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener {
             if (it.isSuccessful) {
-                callback(true, "Registration success", auth.currentUser?.uid.toString())
+                val userId = auth.currentUser?.uid ?: return@addOnCompleteListener
+                val userModel = UserModel(userId, "UserNameHere", email, password) // Replace with actual name
+                addUserToDatabase(userId, userModel) { success, message ->
+                    callback(success, message, userId)
+                }
             } else {
                 callback(false, it.exception?.message.toString(), "")
             }
@@ -63,5 +70,18 @@ class UserRepositoryImpl : UserRepository {
         } else {
             callback(false, "Logout failed")
         }
+    }
+
+    override fun getUserById(userId: String, callback: (UserModel?) -> Unit) {
+        ref.child(userId).addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val userModel = snapshot.getValue(UserModel::class.java)
+                callback(userModel)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                callback(null)
+            }
+        })
     }
 }
