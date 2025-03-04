@@ -13,30 +13,28 @@
         android:id="@+id/hiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:layout_marginEnd="144dp"
+        android:layout_marginTop="328dp"
         android:text="Hi There!"
         android:textColor="@color/blue"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="144dp" />
 
     <ImageView
         android:id="@+id/hiImage"
-        android:layout_width="64dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="308dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toStartOf="@+id/hiText"
+        android:layout_width="74dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="316dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hiimage" />
+        app:srcCompat="@drawable/hiimage"
+        tools:layout_editor_absoluteX="52dp" />
 
     <TextView
         android:id="@+id/caption"
         android:layout_width="327dp"
         android:layout_height="58dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="40dp"
         android:text="Make your travel journey exciting by joining us."
         android:textAlignment="center"
@@ -64,7 +62,7 @@
         android:id="@+id/EmailTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="47dp"
+        android:layout_marginStart="44dp"
         android:layout_marginTop="12dp"
         android:text="Enter Your Email"
         android:textColor="@color/blue"
@@ -124,7 +122,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="12dp"
         android:text="Enter Your Password"
         android:textColor="@color/blue"
         android:textSize="20sp"

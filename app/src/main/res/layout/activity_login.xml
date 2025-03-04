@@ -12,8 +12,8 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="320dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="372dp"
         android:text="Welcome Again!"
         android:textColor="@color/blue"
         android:textSize="30sp"
@@ -25,8 +25,8 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="44dp"
         android:text="Enter Username"
         android:textColor="@color/blue"
         android:textSize="20sp"
@@ -38,8 +38,8 @@
         android:id="@+id/textInputLayout"
         android:layout_width="377dp"
         android:layout_height="59dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="124dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
@@ -55,8 +55,8 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="40dp"
         android:text="Enter Password"
         android:textColor="@color/blue"
         android:textSize="20sp"
@@ -66,32 +66,31 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/password"
-        android:layout_width="391dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginEnd="4dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/pass"
-            android:layout_width="370dp"
+            android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/LoginBtn"
+        android:id="@+id/button"
         android:layout_width="155dp"
         android:layout_height="59dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/blue"
         android:text="log in"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/forgotPass" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <TextView
         android:id="@+id/AccTxt"
@@ -104,7 +103,7 @@
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LoginBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/button" />
 
     <TextView
         android:id="@+id/btnSignUp"
@@ -120,19 +119,4 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/AccTxt" />
-
-    <TextView
-        android:id="@+id/forgotPass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="137dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:text="Forgot Password?"
-        android:textColor="@color/blue"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
