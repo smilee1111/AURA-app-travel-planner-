@@ -5,17 +5,20 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import com.example.aura_app.databinding.ActivityLoginBinding
 import com.example.aura_app.viewModel.UserViewModel
 import com.example.aura_app.R
 import com.example.aura_app.repository.UserRepositoryImpl
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var userViewModel: UserViewModel
     private lateinit var binding: ActivityLoginBinding
+
+    private lateinit var database: FirebaseDatabase
+    private lateinit var usersRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,11 +27,15 @@ class LoginActivity : AppCompatActivity() {
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        // Initialize Firebase Realtime Database
+        database = FirebaseDatabase.getInstance()
+        usersRef = database.reference.child("users")
+
         val repo = UserRepositoryImpl()
         userViewModel = UserViewModel(repo)
 
         binding.login.setOnClickListener {
-            val email = binding.LoginEmail.text.toString().trim() // Fixed the reference to LoginEmail
+            val email = binding.LoginEmail.text.toString().trim()
             val password = binding.password.editText?.text.toString().trim()
 
             // Validate email format
@@ -43,19 +50,34 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            // Perform login
             userViewModel.login(email, password) { success, message ->
                 if (success) {
-                    val selectedId = binding.radioGroup.checkedRadioButtonId
+                    // Sanitize email to avoid Firebase path issues
+                    val sanitizedEmail = email.replace(".", "_")
 
-                    val intent = when (selectedId) {
-                        R.id.UserRadio -> Intent(this@LoginActivity, DashboardActivity::class.java)
-                        R.id.AdminRadio -> Intent(this@LoginActivity, AdminActivity::class.java)
-                        else -> {
-                            Toast.makeText(this@LoginActivity, "Please select User or Admin", Toast.LENGTH_LONG).show()
-                            return@login
+                    // Query Firebase using sanitized email
+                    usersRef.child(sanitizedEmail).get().addOnSuccessListener { dataSnapshot ->
+                        if (dataSnapshot.exists()) {
+                            val role = dataSnapshot.child("role").value.toString()
+
+                            // Navigate based on role
+                            val intent = when (role) {
+                                "admin" -> Intent(this@LoginActivity, AdminActivity::class.java)
+                                "user" -> Intent(this@LoginActivity, DashboardActivity::class.java)
+                                else -> {
+                                    Toast.makeText(this@LoginActivity, "Invalid role", Toast.LENGTH_LONG).show()
+                                    return@addOnSuccessListener
+                                }
+                            }
+                            startActivity(intent)
+                            finish()  // Finish the LoginActivity to prevent going back to login after successful login
+                        } else {
+                            Toast.makeText(this, "No user found with the provided email", Toast.LENGTH_LONG).show()
                         }
+                    }.addOnFailureListener {
+                        Toast.makeText(this, "Failed to get user data", Toast.LENGTH_LONG).show()
                     }
-                    startActivity(intent)
                 } else {
                     Toast.makeText(this@LoginActivity, message, Toast.LENGTH_LONG).show()
                 }
@@ -65,12 +87,6 @@ class LoginActivity : AppCompatActivity() {
         binding.btnSignUp.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
-        }
-
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
         }
     }
 }
