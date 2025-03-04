@@ -27,9 +27,9 @@ class LoginActivity : AppCompatActivity() {
         val repo = UserRepositoryImpl()
         userViewModel = UserViewModel(repo)
 
-        binding.login.setOnClickListener {
-            val email = binding.LoginEmail.text.toString().trim() // Fixed the reference to LoginEmail
-            val password = binding.password.editText?.text.toString().trim()
+        binding.LoginBtn.setOnClickListener {
+            val email = binding.email.text.toString().trim() // Fixed the reference to LoginEmail
+            val password = binding.password.text.toString().trim()
 
             // Validate email format
             if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -45,16 +45,16 @@ class LoginActivity : AppCompatActivity() {
 
             userViewModel.login(email, password) { success, message ->
                 if (success) {
-                    val selectedId = binding.radioGroup.checkedRadioButtonId
-
-                    val intent = when (selectedId) {
-                        R.id.UserRadio -> Intent(this@LoginActivity, DashboardActivity::class.java)
-                        R.id.AdminRadio -> Intent(this@LoginActivity, AdminActivity::class.java)
-                        else -> {
-                            Toast.makeText(this@LoginActivity, "Please select User or Admin", Toast.LENGTH_LONG).show()
-                            return@login
-                        }
-                    }
+//                    val selectedId = binding.radioGroup.checkedRadioButtonId
+//
+//                    val intent = when (selectedId) {
+//                        R.id.UserRadio -> Intent(this@LoginActivity, DashboardActivity::class.java)
+//                        R.id.AdminRadio -> Intent(this@LoginActivity, AdminActivity::class.java)
+//                        else -> {
+//                            Toast.makeText(this@LoginActivity, "Please select User or Admin", Toast.LENGTH_LONG).show()
+//                            return@login
+//                        }
+//                    }
                     startActivity(intent)
                 } else {
                     Toast.makeText(this@LoginActivity, message, Toast.LENGTH_LONG).show()
