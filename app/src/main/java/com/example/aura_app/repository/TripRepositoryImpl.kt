@@ -15,7 +15,7 @@ class TripRepositoryImpl : TripRepository {
 
     override fun addTrip(trip: TripModel): Task<Void> {
         val tripId = tripsRef.push().key ?: return Tasks.forException(Exception("Could not generate trip ID"))
-        trip.userId = trip.userId // Assuming userId is required for Firebase
+        trip.id = tripId
         return tripsRef.child(tripId).setValue(trip)
     }
 
@@ -41,8 +41,7 @@ class TripRepositoryImpl : TripRepository {
     }
 
     override fun updateTrip(trip: TripModel): Task<Void> {
-        val tripId = trip.userId // Assuming the trip ID is stored as the userId or it can be passed in a different way
-        return tripsRef.child(tripId).setValue(trip)
+        return tripsRef.child(trip.id).setValue(trip)
     }
 
     override fun deleteTrip(tripId: String): Task<Void> {

@@ -1,72 +1,71 @@
 package com.example.aura_app.viewmodel
 
-import android.app.Application
-import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.ViewModel
 import com.example.aura_app.model.TripModel
 import com.example.aura_app.repository.TripRepository
-import com.example.aura_app.repository.TripRepositoryImpl
-import com.google.android.gms.tasks.Task
-import kotlinx.coroutines.launch
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
 
-class TripViewModel(application: Application) : AndroidViewModel(application) {
-
-    private val tripRepository: TripRepository = TripRepositoryImpl()
+class TripViewModel(private val tripRepository: TripRepository) : ViewModel() {
 
     private val _trips = MutableLiveData<List<TripModel>>()
     val trips: LiveData<List<TripModel>> get() = _trips
 
-    private val _saveTripStatus = MutableLiveData<Boolean>()
-    val saveTripStatus: LiveData<Boolean> get() = _saveTripStatus
+    private val _operationStatus = MutableLiveData<Result>()
+    val operationStatus: LiveData<Result> get() = _operationStatus
 
-    private val _deleteTripStatus = MutableLiveData<Boolean>()
-    val deleteTripStatus: LiveData<Boolean> get() = _deleteTripStatus
+    // Data class for handling success/failure status with error messages
+    data class Result(val success: Boolean, val message: String?)
 
-    private val _updateTripStatus = MutableLiveData<Boolean>()
-    val updateTripStatus: LiveData<Boolean> get() = _updateTripStatus
+    // Fetch trips for the currently logged-in user
+    fun getTripsForCurrentUser() {
+        val currentUserId = FirebaseAuth.getInstance().currentUser?.uid
+        if (currentUserId != null) {
+            tripRepository.getTripsByUserId(currentUserId).addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    _trips.value = task.result ?: emptyList()  // Update with trips, or empty list if none found
+                } else {
+                    _trips.value = emptyList()  // Handle empty result
+                    _operationStatus.value = Result(false, "Failed to fetch trips: ${task.exception?.message}")
+                }
+            }
+        } else {
+            _trips.value = emptyList()  // Handle case when user is not logged in
+            _operationStatus.value = Result(false, "User is not logged in")
+        }
+    }
 
-    // Create new trip
-    fun saveTrip(trip: TripModel) {
-        viewModelScope.launch {
-            tripRepository.addTrip(trip).addOnSuccessListener {
-                _saveTripStatus.value = true
-            }.addOnFailureListener {
-                _saveTripStatus.value = false
+    // Add a new trip
+    fun addTrip(trip: TripModel) {
+        tripRepository.addTrip(trip).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                _operationStatus.value = Result(true, "Trip added successfully!")
+            } else {
+                _operationStatus.value = Result(false, "Failed to add trip: ${task.exception?.message}")
             }
         }
     }
 
-    // Get trips by userId
-    fun loadTripsByUserId(userId: String) {
-        viewModelScope.launch {
-            tripRepository.getTripsByUserId(userId).addOnSuccessListener { trips ->
-                _trips.value = trips
-            }.addOnFailureListener {
-                _trips.value = emptyList() // Handle failure
-            }
-        }
-    }
-
-    // Update a trip
+    // Update trip information
     fun updateTrip(trip: TripModel) {
-        viewModelScope.launch {
-            tripRepository.updateTrip(trip).addOnSuccessListener {
-                _updateTripStatus.value = true
-            }.addOnFailureListener {
-                _updateTripStatus.value = false
+        tripRepository.updateTrip(trip).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                _operationStatus.value = Result(true, "Trip updated successfully!")
+            } else {
+                _operationStatus.value = Result(false, "Failed to update trip: ${task.exception?.message}")
             }
         }
     }
 
-    // Delete a trip
+    // Delete a trip by its ID
     fun deleteTrip(tripId: String) {
-        viewModelScope.launch {
-            tripRepository.deleteTrip(tripId).addOnSuccessListener {
-                _deleteTripStatus.value = true
-            }.addOnFailureListener {
-                _deleteTripStatus.value = false
+        tripRepository.deleteTrip(tripId).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                _operationStatus.value = Result(true, "Trip deleted successfully!")
+            } else {
+                _operationStatus.value = Result(false, "Failed to delete trip: ${task.exception?.message}")
             }
         }
     }

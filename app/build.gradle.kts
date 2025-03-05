@@ -53,6 +53,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.3.1")
+
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("com.airbnb.android:lottie:6.6.2")
     implementation("com.cloudinary:cloudinary-android:2.1.0")

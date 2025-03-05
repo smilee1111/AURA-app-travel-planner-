@@ -10,10 +10,10 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.app.ui.fragment.CalenderFragment
 import com.example.aura_app.R
 import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
+import com.example.aura_app.ui.fragment.CalenderFragment
 
 import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
