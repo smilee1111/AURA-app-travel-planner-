@@ -4,13 +4,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
 import com.squareup.picasso.Picasso
 
-class ProfileAdapter(private var images: List<String>) :
-    RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+class ProfileAdapter(
+    private var images: List<String>,
+    private val onImageClickListener: (String) -> Unit, // Callback for image click
+    private val onImageLongClickListener: (String) -> Unit // Callback for image long click
+) : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
 
     fun updateData(newImages: List<String>) {
         images = newImages
@@ -34,6 +36,15 @@ class ProfileAdapter(private var images: List<String>) :
             .placeholder(R.drawable.pp)
             .error(R.drawable.imageplaceholder)
             .into(holder.imageView)
+
+        holder.imageView.setOnClickListener {
+            onImageClickListener(imageUrl) // Trigger the click event
+        }
+
+        holder.imageView.setOnLongClickListener {
+            onImageLongClickListener(imageUrl) // Trigger the long click event
+            true
+        }
     }
 
     override fun getItemCount() = images.size

@@ -34,8 +34,9 @@ class ProfileFragment : Fragment() {
     private lateinit var profileImageView: ImageView
     private lateinit var coverImageView: ImageView
     private lateinit var usernameTextView: TextView
-    private lateinit var postsTextView: TextView  // NEW - To display post count
+    private lateinit var postsTextView: TextView
     private lateinit var logoutBtn: Button
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -59,14 +60,26 @@ class ProfileFragment : Fragment() {
 
         recyclerView = view.findViewById(R.id.ProfileRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-        profileAdapter = ProfileAdapter(emptyList())
+
+        // Passing click and long click listeners to the adapter
+        profileAdapter = ProfileAdapter(emptyList(),
+            onImageClickListener = { imageUrl ->
+                // Handle image click - delete the image
+                profileViewModel.removeHighlight(imageUrl)
+                Toast.makeText(requireContext(), "Image deleted", Toast.LENGTH_SHORT).show()
+            },
+            onImageLongClickListener = { imageUrl ->
+                // Handle long-click - update the image
+                selectImage("highlight")
+            })
+
         recyclerView.adapter = profileAdapter
 
         profileImageView = view.findViewById(R.id.circularImg)
         coverImageView = view.findViewById(R.id.imageView6)
         usernameTextView = view.findViewById(R.id.textView16)
         postsTextView = view.findViewById(R.id.textView15)
-        logoutBtn= view.findViewById(R.id.logoutBtn) // NEW - TextView for post count
+        logoutBtn = view.findViewById(R.id.logoutBtn)
 
         // Observe profile data
         profileViewModel.profile.observe(viewLifecycleOwner) { profile ->
@@ -82,8 +95,8 @@ class ProfileFragment : Fragment() {
                     .error(R.drawable.imageplaceholder)
                     .into(coverImageView)
             }
-            usernameTextView.text = "${profile.username}"
-            postsTextView.text ="${profile.posts}" // Display post count
+            usernameTextView.text = profile.username
+            postsTextView.text = profile.posts.toString()
         }
 
         profileImageView.setOnClickListener { showImageOptions("profile", profileImageView) }
@@ -92,19 +105,18 @@ class ProfileFragment : Fragment() {
             selectImage("highlight")
         }
         logoutBtn.setOnClickListener {
-            userViewModel.logout{ success, message ->
-                // Handle the logout result here
+            userViewModel.logout { success, message ->
                 if (success) {
                     val intent = Intent(requireContext(), LoginActivity::class.java)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                     startActivity(intent)
                     requireActivity().finish()
                 } else {
-                    // Handle failure (e.g., show a toast or log the error message)
                     Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
                 }
             }
         }
+
         return view
     }
 
@@ -126,7 +138,6 @@ class ProfileFragment : Fragment() {
             selectImage(type)
         }
     }
-
     private fun selectImage(type: String) {
         val intent = Intent(Intent.ACTION_PICK)
         intent.type = "image/*"
@@ -136,7 +147,6 @@ class ProfileFragment : Fragment() {
             else -> PICK_HIGHLIGHT_REQUEST
         })
     }
-
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && data != null) {
@@ -161,7 +171,6 @@ class ProfileFragment : Fragment() {
             }
         }
     }
-
     companion object {
         private const val PICK_PROFILE_REQUEST = 1
         private const val PICK_COVER_REQUEST = 2
