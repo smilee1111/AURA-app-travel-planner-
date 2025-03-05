@@ -15,8 +15,8 @@ import com.example.aura_app.model.TripModel
 import com.example.aura_app.ui.adapter.TripAdapter
 import com.example.aura_app.viewmodel.TripViewModel
 import com.example.aura_app.repository.TripRepositoryImpl
-import com.google.firebase.auth.FirebaseAuth
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -193,5 +193,6 @@ class CalenderFragment : Fragment() {
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }
+
     }
-}
+    }

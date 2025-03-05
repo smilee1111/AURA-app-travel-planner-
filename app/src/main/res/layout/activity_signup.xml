@@ -13,22 +13,24 @@
         android:id="@+id/hiText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="328dp"
         android:text="Hi There!"
         android:textColor="@color/blue"
         android:textSize="30dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:layout_editor_absoluteX="144dp" />
+        app:layout_constraintStart_toEndOf="@+id/hiImage"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/hiImage"
         android:layout_width="74dp"
         android:layout_height="61dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="316dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/hiimage"
-        tools:layout_editor_absoluteX="52dp" />
+        app:srcCompat="@drawable/hiimage" />
 
     <TextView
         android:id="@+id/caption"
