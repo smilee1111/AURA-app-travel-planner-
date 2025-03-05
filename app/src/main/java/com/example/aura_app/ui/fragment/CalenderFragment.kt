@@ -59,7 +59,7 @@ class CalenderFragment : Fragment() {
         val tripDetail = etTripDetail.text.toString().trim()
         val tripDate = tvSelectedDate.text.toString()
 
-        if (tripDetail.isEmpty()) {
+        if (tripDetail.isEmpty()){
             Toast.makeText(requireContext(), "Please enter trip details!", Toast.LENGTH_SHORT).show()
             return
         }
