@@ -23,7 +23,7 @@ class DashboardAdapter(
         fun onItemClick(position: Int)
     }
 
-
+//dashboard view holder recycler view holder
     class DashboardViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val image: ImageView = itemView.findViewById(R.id.image)
         val name: TextView = itemView.findViewById(R.id.nameText)
