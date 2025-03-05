@@ -1,19 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/white"
     android:gravity="center"
-    tools:context=".ui.fragment.HomeFragment">
+    android:padding="20dp"
+    android:background="@drawable/time"
+    tools:context=".ui.fragment.CalenderFragment">
 
-    <!-- TODO: Update blank fragment layout -->
+    <!-- Heading -->
     <TextView
+        android:id="@+id/heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="30sp"
-        android:text="View or pick a date!!" />
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="80dp"
+        android:text="Select the dates"
+        android:textColor="@color/blue"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</LinearLayout>
+    <!-- Icon -->
+    <ImageView
+        android:id="@+id/ivCalendarIcon"
+        android:layout_width="108dp"
+        android:layout_height="82dp"
+        android:layout_marginTop="80dp"
+        android:src="@drawable/ic_calendar_clock"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/heading" />
+
+    <!-- Button to open DatePicker -->
+    <TextView
+        android:id="@+id/btnPickDate"
+        android:layout_width="158dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/brown"
+        android:text="    Pick a date"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@id/ivCalendarIcon"
+        app:layout_constraintTop_toBottomOf="@id/heading" />
+
+    <!-- TextView to display selected date -->
+    <TextView
+        android:id="@+id/tvSelectedDate"
+        android:layout_width="199dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="40dp"
+        android:background="@color/brown"
+        android:text="For your next trip"
+        android:textColor="@color/white"
+        android:textStyle="italic"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnPickDate" />
+
+    <!-- Trip Detail Input -->
+    <TextView
+        android:id="@+id/etTripDetail"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginTop="20dp"
+        android:background="@android:drawable/edit_text"
+        android:hint="Enter trip details"
+        android:padding="10dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvSelectedDate" />
+
+    <!-- Save Trip Button -->
+    <TextView
+        android:id="@+id/btnSaveTrip"
+        android:layout_width="119dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:background="@color/brown"
+        android:text="Save Trip"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/etTripDetail" />
+
+    <!-- RecyclerView to Display Trips -->
+
+    <!-- Floating Action Button to Add Trips -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTrips"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toTopOf="@id/fabAddTrip"
+        app:layout_constraintTop_toBottomOf="@id/btnSaveTrip"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="24dp"
+        tools:listitem="@layout/item_trip" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAddTrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:src="@drawable/baseline_add_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

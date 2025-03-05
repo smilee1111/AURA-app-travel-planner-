@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="27dp"
@@ -9,13 +10,12 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="154dp"
+        android:layout_height="157dp"
         android:scaleType="centerCrop"
-        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:srcCompat="@drawable/ktm" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:id="@+id/descText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:text="Description"
         android:textColor="@android:color/darker_gray"
         android:textSize="14sp"
@@ -50,12 +50,13 @@
         android:id="@+id/priceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="Price"
+        android:textColor="@android:color/holo_red_dark"
         android:textSize="16sp"
         android:textStyle="bold"
-        android:textColor="@android:color/holo_red_dark"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="@id/nameText"
-        android:layout_marginTop="8dp"
-        android:text="Price" />
+        app:layout_constraintStart_toStartOf="@id/nameText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

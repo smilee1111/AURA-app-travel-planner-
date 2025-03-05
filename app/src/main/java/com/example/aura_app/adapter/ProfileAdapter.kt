@@ -4,28 +4,48 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aura_app.R
+import com.squareup.picasso.Picasso
 
-class ProfileAdapter(private val countryNames: List<String>, private val imageResources: List<Int>) :
-    RecyclerView.Adapter<ProfileAdapter.ProfileViewHolder>() {
+class ProfileAdapter(
+    private var images: List<String>,
+    private val onImageClickListener: (String) -> Unit, // Callback for image click
+    private val onImageLongClickListener: (String) -> Unit // Callback for image long click
+) : RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
 
-    class ProfileViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val countryImage: ImageView = itemView.findViewById(R.id.imageViewCountry)
-        val countryName: TextView = itemView.findViewById(R.id.countriesName)
+    fun updateData(newImages: List<String>) {
+        images = newImages
+        notifyDataSetChanged()
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProfileViewHolder {
+    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val imageView: ImageView = itemView.findViewById(R.id.imageViewCountry)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.profilerecycle, parent, false)
-        return ProfileViewHolder(view)
+        return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ProfileViewHolder, position: Int) {
-        holder.countryName.text = countryNames[position]
-        holder.countryImage.setImageResource(imageResources[position])  // Set image without Picasso
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val imageUrl = images[position]
+        Picasso.get()
+            .load(imageUrl)
+            .placeholder(R.drawable.pp)
+            .error(R.drawable.imageplaceholder)
+            .into(holder.imageView)
+
+        holder.imageView.setOnClickListener {
+            onImageClickListener(imageUrl) // Trigger the click event
+        }
+
+        holder.imageView.setOnLongClickListener {
+            onImageLongClickListener(imageUrl) // Trigger the long click event
+            true
+        }
     }
 
-    override fun getItemCount() = countryNames.size
+    override fun getItemCount() = images.size
 }

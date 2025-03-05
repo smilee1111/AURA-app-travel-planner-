@@ -14,6 +14,7 @@ import com.example.aura_app.R
 import com.example.aura_app.adapter.DashboardAdapter
 import com.example.aura_app.databinding.ActivityDashboardBinding
 import com.example.aura_app.ui.fragment.CalenderFragment
+
 import com.example.aura_app.ui.fragment.ExploreFragment
 import com.example.aura_app.ui.fragment.HomeFragment
 import com.example.aura_app.ui.fragment.ItiineryFragment
@@ -29,6 +30,7 @@ class DashboardActivity : AppCompatActivity() {
         binding = ActivityDashboardBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        replaceFragment(HomeFragment())
 
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {

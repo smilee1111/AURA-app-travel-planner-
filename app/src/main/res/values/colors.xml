@@ -7,4 +7,7 @@
     <color name="white">#FFFFFFFF</color>
     <color name="boxcolor">#526481</color>
     <color name="brown">#703535</color>
+    <color name="green">#4CAF50</color>
+    <color name="gray">#878585</color>
+    <color name="lightblue">#b2cbde</color>
 </resources>

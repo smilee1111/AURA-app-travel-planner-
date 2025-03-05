@@ -1,25 +1,56 @@
-package com.example.aura_app.ui.activity
+    package com.example.aura_app.ui.activity
 
+    import android.content.Intent
+    import android.os.Bundle
+    import android.widget.Toast
+    import androidx.appcompat.app.AppCompatActivity
+    import com.example.aura_app.databinding.ActivitySignupBinding
+    import com.example.aura_app.model.UserModel
+    import com.example.aura_app.repository.UserRepositoryImpl
+    import com.example.aura_app.viewModel.UserViewModel
 
-import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.example.aura_app.R
-import com.example.aura_app.databinding.ActivitySignupBinding
+    class SignupActivity : AppCompatActivity() {
 
-class SignupActivity : AppCompatActivity() {
-    lateinit var binding: ActivitySignupBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        binding = ActivitySignupBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        private lateinit var binding: ActivitySignupBinding
+        private lateinit var userViewModel: UserViewModel
+        private lateinit var userRepository: UserRepositoryImpl
+
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+
+            binding = ActivitySignupBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            userRepository = UserRepositoryImpl()
+            userViewModel = UserViewModel(userRepository)
+
+            binding.signUpButton.setOnClickListener {
+                val username = binding.userS.text.toString().trim()
+                val email = binding.textInputLayout2.editText?.text.toString().trim()
+                val password = binding.passS.text.toString().trim()
+
+                if (username.isEmpty() || email.isEmpty() || password.isEmpty()) {
+                    Toast.makeText(this, "All fields must be filled!", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(this, "Sign Up Successful!", Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, DashboardActivity::class.java)
+                    startActivity(intent)
+                }
+                userViewModel.signup(email, password) { success, message, userId ->
+                    if (success) {
+                        val userModel = UserModel(userId, username, email, password)
+                        userViewModel.addUserToDatabase(userId, userModel) { dbSuccess, dbMessage ->
+                            if (dbSuccess) {
+                                Toast.makeText(this, "Registration successful", Toast.LENGTH_LONG).show()
+                                startActivity(Intent(this, LoginActivity::class.java))
+                                finish()
+                            } else {
+                                Toast.makeText(this, dbMessage, Toast.LENGTH_LONG).show()
+                            }
+                        }
+                    } else {
+                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
+                    }
+                }
+            }
         }
     }
-}

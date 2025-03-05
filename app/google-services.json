@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "464952387916",
+    "project_id": "aura-travel-planner-app",
+    "storage_bucket": "aura-travel-planner-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:464952387916:android:342d029024c68ea85507e9",
+        "android_client_info": {
+          "package_name": "com.example.aura_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBye5HsdOCrZbdnwC5UnprStxmiG2A7qt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
