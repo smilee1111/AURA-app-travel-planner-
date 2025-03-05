@@ -2,18 +2,7 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="DashboardActivity">
-        <option name="selectionMode" value="DROPDOWN" />
-        <DropdownSelection timestamp="2025-03-03T16:05:54.860382400Z">
-          <Target type="DEFAULT_BOOT">
-            <handle>
-              <DeviceId pluginId="PhysicalDevice" identifier="serial=RZ8TC0C4MAL" />
-            </handle>
-          </Target>
-        </DropdownSelection>
-        <DialogSelection />
-      </SelectionState>
-      <SelectionState runConfigName="SignupActivity (1)">
+      <SelectionState runConfigName="SignupActivity">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
