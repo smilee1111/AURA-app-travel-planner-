@@ -15,28 +15,38 @@ import com.example.aura_app.viewModel.UserViewModel
 class LoginActivity : AppCompatActivity() {
     lateinit var binding: ActivityLoginBinding
     lateinit var userViewModel: UserViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
 
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        var repo =UserRepositoryImpl()
+
+        val repo = UserRepositoryImpl()
         userViewModel = UserViewModel(repo)
+
         // Handle Login Button Click
-        binding.LoginBtn.setOnClickListener{
+        binding.LoginBtn.setOnClickListener {
             val email = binding.email.text.toString().trim()
             val password = binding.password.text.toString().trim()
 
-            userViewModel.login(email,password){
-                    success,message->
-                if(success){
+            // Check for admin credentials first
+            if (email == "admin123@gmail.com" && password == "admin123") {
+                // Navigate to Admin Dashboard Activity
+                val intent = Intent(this@LoginActivity, AdminActivity::class.java)
+                startActivity(intent)
+                return@setOnClickListener
+            }
+
+            // Check the credentials of a regular user in the database
+            userViewModel.login(email, password) { success, message ->
+                if (success) {
                     Toast.makeText(this, "Login Successful", Toast.LENGTH_LONG).show()
-                    val intent = Intent (this@LoginActivity,DashboardActivity::class.java)
+                    val intent = Intent(this@LoginActivity, DashboardActivity::class.java)
                     startActivity(intent)
-                }else{
-                    Toast.makeText(this@LoginActivity,
-                        message, Toast.LENGTH_LONG).show()
+                } else {
+                    Toast.makeText(this@LoginActivity, message, Toast.LENGTH_LONG).show()
                 }
             }
         }
