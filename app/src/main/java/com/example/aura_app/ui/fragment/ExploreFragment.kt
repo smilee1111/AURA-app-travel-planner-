@@ -22,6 +22,7 @@ class ExploreFragment : Fragment() {
         "Switzerland, known for its picturesque landscapes, is a country in Europe that is famous for its mountains, lakes and  villages.",
         "Thailand known for tropical beaches,royal palaces, ancient temples displaying figures of Buddha. ",
         "Italy, a European country with a long Mediterranean coastline, has left a powerful mark on Western culture and cuisine. Its capital, Rome, is home to the Vatican as well as landmark art and ancient ruins.",
+        "India is known for its diverse culture, historical monuments, vibrant festivals, majestic palaces, ancient temples, and rich traditions.",
         "France, in Western Europe, encompasses medieval cities, alpine villages and Mediterranean beaches. Paris, its capital, is famed for its fashion houses, classical art museums including the Louvre and monuments like the Eiffel Tower.",
         "U.S. is a country of 50 states covering a vast swath of North America, with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean. Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington, DC"
     )

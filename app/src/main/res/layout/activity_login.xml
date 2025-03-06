@@ -12,8 +12,8 @@
         android:id="@+id/welcome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="336dp"
         android:text="Welcome Again!"
         android:textColor="@color/blue"
         android:textSize="30sp"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="52dp"
         android:layout_marginTop="44dp"
-        android:text="Enter Username"
+        android:text="Enter Email"
         android:textColor="@color/blue"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -35,17 +35,17 @@
         app:layout_constraintTop_toBottomOf="@+id/welcome" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
-        android:layout_width="377dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="124dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/username"
+        android:layout_width="373dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/Username"
-            android:layout_width="370dp"
+            android:id="@+id/email"
+            android:layout_width="373dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/shape" />
@@ -55,25 +55,26 @@
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="52dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="60dp"
         android:text="Enter Password"
         android:textColor="@color/blue"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/password"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="8dp"
+        android:id="@+id/pass"
+        android:layout_width="398dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="9dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
             android:layout_width="378dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -81,7 +82,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/LoginBtn"
         android:layout_width="155dp"
         android:layout_height="59dp"
         android:layout_marginStart="136dp"
@@ -90,26 +91,26 @@
         android:text="log in"
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <TextView
         android:id="@+id/AccTxt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="112dp"
+        android:layout_marginEnd="80dp"
         android:text="Don't have an Account?"
         android:textColor="@color/blue"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button" />
+        app:layout_constraintTop_toBottomOf="@+id/LoginBtn" />
 
     <TextView
         android:id="@+id/btnSignUp"
         android:layout_width="90dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="155dp"
+        android:layout_marginEnd="132dp"
         android:clickable="true"
         android:focusable="true"
         android:padding="4dp"
